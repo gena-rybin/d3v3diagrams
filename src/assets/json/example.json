@@ -1,0 +1,63 @@
+{
+ "name": "Coca-Cola",
+ "children": [
+  {
+    "name": "Smart One",
+    "children": [
+      {
+       "name": "Smart Two",
+       "children": [
+        {
+         "name": "NewsUK",
+         "children": [
+          {"name": "Media Type: TV UK", "size": 3938},
+          {"name": "Buy type: Spot", "size": 3812},
+          {"name": "Audience: Housepersons", "size": 6714},
+          {"name": "Daypart: Breakfast", "size": 743},
+          {"name": "Length: 30", "size": 743}
+         ]
+        },
+        {
+         "name": "Viacom",
+         "children": [
+         {"name": "Media type: Digital", "size": 3938},
+         {"name": "Buy type: Programmatic Guaranteed", "size": 3812},
+         {"name": "Media: mtv.com", "size": 6714},
+         {"name": "Sub media: Online video", "size": 743},
+         {"name": "Format: Full banner", "size": 743},
+         {"name": "Device: Personal computer", "size": 743}
+         ]
+        }
+       ]
+      }
+     ]
+  },
+  {
+    "name": "Smart Three",
+    "children": [
+     {
+      "name": "Viacom",
+      "children": [
+       {"name": "Media type: Digital", "size": 3938},
+       {"name": "Buy type: Programmatic PMP", "size": 3812},
+       {"name": "Media: mtv.com", "size": 6714},
+       {"name": "Sub media: Online video", "size": 743},
+       {"name": "Format: Full banner", "size": 743},
+       {"name": "Device: Personal computer", "size": 743}
+      ]
+     }
+   ]
+  },
+  {
+   "name": "HuffPost News",
+   "children": [
+    {"name": "Media type: Digital", "size": 17010},
+    {"name": "Buy type: Programmatic PMP", "size": 5842},
+    {"name": "Media: huffintonpost.com", "size": 17010},
+    {"name": "Sub media: Mobile video", "size": 5842},
+    {"name": "Format: Half banner", "size": 5842},
+    {"name": "Device: Mobile/Tablet", "size": 5842}
+     ]
+    }
+ ]
+}

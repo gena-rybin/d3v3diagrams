@@ -1,0 +1,114 @@
+#body {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+svg{
+  padding: 12px;
+  margin: 12px;
+}
+
+/* =============== D3v3HierarchyComponent =======start======== */
+rect {
+  fill: none;
+  pointer-events: all;
+}
+
+pre {
+  font-size: 18px;
+}
+
+line {
+  stroke: #0E0;
+  stroke-width: 1.5px;
+}
+
+.string, .regexp {
+  color: #f39;
+}
+
+.keyword {
+  color: #00c;
+}
+
+.comment {
+  color: #777;
+  font-style: oblique;
+}
+
+.number {
+  color: #369;
+}
+
+.class, .special {
+  color: #1181B8;
+}
+
+a:link, a:visited {
+  color: steelblue;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #666;
+}
+
+.node circle {
+  cursor: pointer;
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font-size: 12px;
+}
+
+path.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2.0px;
+}
+/* =============== D3v3HierarchyComponent =======end======== */
+
+
+/* =============== D3v3Example1Component =======start======== */
+.node circle {
+  cursor: pointer;
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+.node text {
+  font-size: 11px;
+}
+path.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+/* =============== D3v3Example1Component =======end======== */
+
+
+/* =============== D3v3Example2Component =======start======== */
+/* =============== D3v3Example2DndComponent =======start======== */
+.node rect {
+  cursor: move;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+.node text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+}
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .2;
+}
+.link:hover {
+  stroke-opacity: .5;
+}
+/* =============== D3v3Example2Component =======end======== */
+/* =============== D3v3Example2DndComponent =======end======== */

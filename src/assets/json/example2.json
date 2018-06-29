@@ -1,0 +1,21 @@
+{
+    "nodes":[
+    {"name":"Advertiser1"},
+    {"name":"Agency1"},
+    {"name":"Agency2"},
+    {"name":"Agency3"},
+    {"name":"MediaOwner1"},
+    {"name":"MediaOwner2"},
+    {"name":"MediaOwner3"},
+    {"name":"MediaOwner4"}
+    ],
+    "links":[
+    {"source":"Advertiser1","target":"Agency1","value":1},
+    {"source":"Advertiser1","target":"Agency2","value":1},
+    {"source":"Agency2","target":"Agency3","value":1},
+    {"source":"Agency1","target":"MediaOwner1","value":1},
+    {"source":"Agency1","target":"Agency3","value":1},
+    {"source":"Agency2","target":"MediaOwner2","value":1},
+    {"source":"Agency3","target":"MediaOwner3","value":1},
+    {"source":"Agency3","target":"MediaOwner4","value":1}
+    ]}
