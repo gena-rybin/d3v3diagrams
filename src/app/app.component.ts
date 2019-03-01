@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {D3HierarchyNodeInterface} from './models/d3-hierarchy-node.model';
 
 @Component({
   selector: 'app-root',
@@ -496,4 +497,8 @@ export class AppComponent {
       {'source':'Agency3','target':'MediaOwner3','value':1},
       {'source':'Agency3','target':'MediaOwner4','value':1}
     ]};
+
+  public nodeClicked(node: D3HierarchyNodeInterface) {
+    console.log('clicked--->', node);
+  }
 }

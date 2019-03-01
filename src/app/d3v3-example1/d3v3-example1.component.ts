@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import * as d3 from 'd3';
+import {D3HierarchyNodeInterface} from '../models/d3-hierarchy-node.model';
 
 
 @Component({
@@ -487,12 +488,12 @@ export class D3v3Example1Component implements OnInit {
   vis;
 
   @Input() json_data: any;
-
+  @Output() nodeClicked = new EventEmitter<D3HierarchyNodeInterface>();
 
   ngOnInit() {
-    this.m = [10, 100, 10, 100];
+    this.m = [10, 20, 10, 80];
     this.w = 1380 - this.m[1] - this.m[3];
-    this.h = 800 - this.m[0] - this.m[2];
+    this.h = 600 - this.m[0] - this.m[2];
 
     this.tree = d3.layout.tree()
       .size([this.h, this.w]);
@@ -513,33 +514,23 @@ export class D3v3Example1Component implements OnInit {
 
     console.log(this.root);
 
-//     d3.json('../../assets/json/example1.json', json => {
-//       // this.root = json;
-//       // this.root.x0 = this.h / 2;
-//       // this.root.y0 = 0;
-//
-//       // function toggleAll(d) {
-//       //   if (d.children) {
-//       //     d.children.forEach(toggleAll);
-//       //     toggle(d);
-//       //   }
-//       // }
-//
-//       // Initialize the display to show a few nodes.
-//       // root.children.forEach(toggleAll);
-// //   toggle(root.children[1]);
-// //   toggle(root.children[1].children[2]);
-// //   toggle(root.children[9]);
-// //   toggle(root.children[9].children[0]);
-// //       this.update(this.root);
-//     });
+    // INITIAL DISPLAY to show a few nodes.
+    // this.root.children.forEach(this.toggleAll);
+    // this.toggle(this.root.children[1]);
+    // this.toggle(this.root.children[0]);
+    // this.toggle(this.root.children[1].children[2]);
+    // this.toggle(this.root.children[9]);
+    this.toggle(this.root.children[1].children[0]);
+    this.update(this.root);
 
   }
 
   toggleAll(d: any) {
-    if (d.children) {
-      d.children.forEach(this.toggleAll);
-      this.toggle(d);
+    if (d) {
+      if (d.children) {
+        d.children.forEach(this.toggleAll);
+        this.toggle(d);
+      }
     }
   }
 
@@ -560,7 +551,7 @@ export class D3v3Example1Component implements OnInit {
     const nodeEnter = node.enter().append('svg:g')
       .attr('class', 'node')
       .attr('transform', d => 'translate(' + source.y0 + ',' + source.x0 + ')')
-      .on('click', d => { this.toggle(d); this.update(d); });
+      .on('click', d => { this.onClicked(d); this.toggle(d); this.update(d); });
 
     nodeEnter.append('svg:circle')
       .attr('r', 1e-6)
@@ -612,10 +603,12 @@ export class D3v3Example1Component implements OnInit {
     const link = this.vis.selectAll('path.link')
       .data(this.tree.links(nodes), d => d.target.id);
 
+    // NODE OPENING CLICK
     // Enter any new links at the parent's previous position.
     link.enter().insert('svg:path', 'g')
       .attr('class', 'link')
       .attr('d', d => {
+        // console.log(d);
         const o = {x: source.x0, y: source.y0};
         return this.diagonal({source: o, target: o});
       })
@@ -628,10 +621,12 @@ export class D3v3Example1Component implements OnInit {
       .duration(duration)
       .attr('d', this.diagonal);
 
+    // NODE CLOSING CLICK
     // Transition exiting nodes to the parent's new position.
     link.exit().transition()
       .duration(duration)
       .attr('d', d => {
+        // console.log(d);
         const o = {x: source.x, y: source.y};
         return this.diagonal({source: o, target: o});
       })
@@ -642,17 +637,28 @@ export class D3v3Example1Component implements OnInit {
       d.x0 = d.x;
       d.y0 = d.y;
     });
+
+    // node.on('click', function(d) {
+    //   console.log(d);
+    // });
   }
 
-  // Toggle children.
+  // Toggle children = OPEN / CLOSE NODE
   toggle(d: any) {
-    if (d.children) {
-      d._children = d.children;
-      d.children = null;
-    } else {
-      d.children = d._children;
-      d._children = null;
+    if (d) {
+      if (d.children) {
+        d._children = d.children;
+        d.children = null;
+      } else {
+        d.children = d._children;
+        d._children = null;
+      }
     }
+  }
+
+  public onClicked(node: D3HierarchyNodeInterface) {
+    // console.log('clicked--->', node);
+    this.nodeClicked.emit(node);
   }
 
 }

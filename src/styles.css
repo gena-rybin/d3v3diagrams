@@ -1,12 +1,12 @@
 #body {
-  width: 1200px;
+  /*width: 1200px;*/
   margin: 0 auto;
   position: relative;
 }
 
 svg{
-  padding: 12px;
-  margin: 12px;
+  padding: 2px;
+  margin: 2px;
 }
 
 /* =============== D3v3HierarchyComponent =======start======== */
