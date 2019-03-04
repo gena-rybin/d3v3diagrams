@@ -7,7 +7,149 @@ import {D3HierarchyNodeInterface} from './models/d3-hierarchy-node.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  example1json = {
+  test = [
+      {
+        'name': 'order1',
+        'children': [
+          {
+            'name': 'Bookings',
+            'children': [
+              {
+                'name': 'booking1',
+                'children': [
+                  {
+                    'name': 'Submedia:None'
+                  },
+                  {
+                    'name': 'BuyType:Direct'
+                  },
+                  {
+                    'name': 'Date:01.01.2018-30.01.2018'
+                  },
+                  {
+                    'name': 'Cost:3000'
+                  },
+                  {
+                    'name': 'Currency:GBP'
+                  }
+                ]
+              },
+              {
+                'name': 'booking2',
+                'children': [
+                  {
+                    'name': 'Submedia:None'
+                  },
+                  {
+                    'name': 'BuyType:Direct'
+                  },
+                  {
+                    'name': 'Date:01.01.2018-30.01.2018'
+                  },
+                  {
+                    'name': 'Cost:3000'
+                  },
+                  {
+                    'name': 'Currency:GBP'
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            'name': 'Payment Conditions',
+            'children': [
+              {
+                'name': 'PC1',
+                'children': [
+                  {
+                    'name': 'attribute1:value1'
+                  },
+                  {
+                    'name': 'attribute2:value2'
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            'name': 'Allocation: 235 EUR'
+          }
+        ]
+      },
+      {
+        'name': 'order2',
+        'children': [
+          {
+            'name': 'Bookings',
+            'children': [
+              {
+                'name': 'booking3',
+                'children': [
+                  {
+                    'name': 'Submedia:None'
+                  },
+                  {
+                    'name': 'BuyType:Direct'
+                  },
+                  {
+                    'name': 'Date:01.01.2018-30.01.2018'
+                  },
+                  {
+                    'name': 'Cost:3000'
+                  },
+                  {
+                    'name': 'Currency:GBP'
+                  }
+                ]
+              },
+              {
+                'name': 'booking4',
+                'children': [
+                  {
+                    'name': 'Submedia:None'
+                  },
+                  {
+                    'name': 'BuyType:Direct'
+                  },
+                  {
+                    'name': 'Date:01.01.2018-30.01.2018'
+                  },
+                  {
+                    'name': 'Cost:3000'
+                  },
+                  {
+                    'name': 'Currency:GBP'
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            'name': 'Payment Conditions',
+            'children': [
+              {
+                'name': 'PC1',
+                'children': [
+                  {
+                    'name': 'attribute1:value1'
+                  },
+                  {
+                    'name': 'attribute2:value2'
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            'name': 'Allocation: 235 EUR'
+          }
+        ]
+      }
+    ];
+  isChanged = false;
+
+    example1json = {
     'name': 'Campaign1',
     'children': [
       {
@@ -15,146 +157,147 @@ export class AppComponent {
         'children': [
           {
             'name': 'mediaOwner1',
-            'children': [
-              {
-                'name': 'order1',
-                'children': [
-                  {
-                    'name': 'Bookings',
-                    'children': [
-                      {
-                        'name': 'booking1',
-                        'children': [
-                          {
-                            'name': 'Submedia:None'
-                          },
-                          {
-                            'name': 'BuyType:Direct'
-                          },
-                          {
-                            'name': 'Date:01.01.2018-30.01.2018'
-                          },
-                          {
-                            'name': 'Cost:3000'
-                          },
-                          {
-                            'name': 'Currency:GBP'
-                          }
-                        ]
-                      },
-                      {
-                        'name': 'booking2',
-                        'children': [
-                          {
-                            'name': 'Submedia:None'
-                          },
-                          {
-                            'name': 'BuyType:Direct'
-                          },
-                          {
-                            'name': 'Date:01.01.2018-30.01.2018'
-                          },
-                          {
-                            'name': 'Cost:3000'
-                          },
-                          {
-                            'name': 'Currency:GBP'
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    'name': 'Payment Conditions',
-                    'children': [
-                      {
-                        'name': 'PC1',
-                        'children': [
-                          {
-                            'name': 'attribute1:value1'
-                          },
-                          {
-                            'name': 'attribute2:value2'
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    'name': 'Allocation: 235 EUR'
-                  }
-                ]
-              },
-              {
-                'name': 'order2',
-                'children': [
-                  {
-                    'name': 'Bookings',
-                    'children': [
-                      {
-                        'name': 'booking3',
-                        'children': [
-                          {
-                            'name': 'Submedia:None'
-                          },
-                          {
-                            'name': 'BuyType:Direct'
-                          },
-                          {
-                            'name': 'Date:01.01.2018-30.01.2018'
-                          },
-                          {
-                            'name': 'Cost:3000'
-                          },
-                          {
-                            'name': 'Currency:GBP'
-                          }
-                        ]
-                      },
-                      {
-                        'name': 'booking4',
-                        'children': [
-                          {
-                            'name': 'Submedia:None'
-                          },
-                          {
-                            'name': 'BuyType:Direct'
-                          },
-                          {
-                            'name': 'Date:01.01.2018-30.01.2018'
-                          },
-                          {
-                            'name': 'Cost:3000'
-                          },
-                          {
-                            'name': 'Currency:GBP'
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    'name': 'Payment Conditions',
-                    'children': [
-                      {
-                        'name': 'PC1',
-                        'children': [
-                          {
-                            'name': 'attribute1:value1'
-                          },
-                          {
-                            'name': 'attribute2:value2'
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    'name': 'Allocation: 235 EUR'
-                  }
-                ]
-              }
-            ]
+            'children': undefined
+            // 'children': [
+            //   {
+            //     'name': 'order1',
+            //     'children': [
+            //       {
+            //         'name': 'Bookings',
+            //         'children': [
+            //           {
+            //             'name': 'booking1',
+            //             'children': [
+            //               {
+            //                 'name': 'Submedia:None'
+            //               },
+            //               {
+            //                 'name': 'BuyType:Direct'
+            //               },
+            //               {
+            //                 'name': 'Date:01.01.2018-30.01.2018'
+            //               },
+            //               {
+            //                 'name': 'Cost:3000'
+            //               },
+            //               {
+            //                 'name': 'Currency:GBP'
+            //               }
+            //             ]
+            //           },
+            //           {
+            //             'name': 'booking2',
+            //             'children': [
+            //               {
+            //                 'name': 'Submedia:None'
+            //               },
+            //               {
+            //                 'name': 'BuyType:Direct'
+            //               },
+            //               {
+            //                 'name': 'Date:01.01.2018-30.01.2018'
+            //               },
+            //               {
+            //                 'name': 'Cost:3000'
+            //               },
+            //               {
+            //                 'name': 'Currency:GBP'
+            //               }
+            //             ]
+            //           }
+            //         ]
+            //       },
+            //       {
+            //         'name': 'Payment Conditions',
+            //         'children': [
+            //           {
+            //             'name': 'PC1',
+            //             'children': [
+            //               {
+            //                 'name': 'attribute1:value1'
+            //               },
+            //               {
+            //                 'name': 'attribute2:value2'
+            //               }
+            //             ]
+            //           }
+            //         ]
+            //       },
+            //       {
+            //         'name': 'Allocation: 235 EUR'
+            //       }
+            //     ]
+            //   },
+            //   {
+            //     'name': 'order2',
+            //     'children': [
+            //       {
+            //         'name': 'Bookings',
+            //         'children': [
+            //           {
+            //             'name': 'booking3',
+            //             'children': [
+            //               {
+            //                 'name': 'Submedia:None'
+            //               },
+            //               {
+            //                 'name': 'BuyType:Direct'
+            //               },
+            //               {
+            //                 'name': 'Date:01.01.2018-30.01.2018'
+            //               },
+            //               {
+            //                 'name': 'Cost:3000'
+            //               },
+            //               {
+            //                 'name': 'Currency:GBP'
+            //               }
+            //             ]
+            //           },
+            //           {
+            //             'name': 'booking4',
+            //             'children': [
+            //               {
+            //                 'name': 'Submedia:None'
+            //               },
+            //               {
+            //                 'name': 'BuyType:Direct'
+            //               },
+            //               {
+            //                 'name': 'Date:01.01.2018-30.01.2018'
+            //               },
+            //               {
+            //                 'name': 'Cost:3000'
+            //               },
+            //               {
+            //                 'name': 'Currency:GBP'
+            //               }
+            //             ]
+            //           }
+            //         ]
+            //       },
+            //       {
+            //         'name': 'Payment Conditions',
+            //         'children': [
+            //           {
+            //             'name': 'PC1',
+            //             'children': [
+            //               {
+            //                 'name': 'attribute1:value1'
+            //               },
+            //               {
+            //                 'name': 'attribute2:value2'
+            //               }
+            //             ]
+            //           }
+            //         ]
+            //       },
+            //       {
+            //         'name': 'Allocation: 235 EUR'
+            //       }
+            //     ]
+            //   }
+            // ]
           }
         ]
       },
@@ -500,5 +643,12 @@ export class AppComponent {
 
   public nodeClicked(node: D3HierarchyNodeInterface) {
     console.log('clicked--->', node);
+    this.isChanged = false;
+  }
+
+  add() {
+    this.example1json.children[0].children[0]['_children'] = this.test;
+    console.log(this.example1json.children[0].children[0]);
+    this.isChanged = true;
   }
 }

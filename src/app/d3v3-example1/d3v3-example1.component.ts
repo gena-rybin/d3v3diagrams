@@ -488,6 +488,13 @@ export class D3v3Example1Component implements OnInit {
   vis;
 
   @Input() json_data: any;
+  @Input() set isChanged(data: boolean) {
+    if (data) {
+      this.update(this.root);
+      console.log(this.root);
+      // this.toggle(this.root.children[0].children[0]);
+    } else {console.log(data); }
+  }
   @Output() nodeClicked = new EventEmitter<D3HierarchyNodeInterface>();
 
   ngOnInit() {
@@ -520,6 +527,7 @@ export class D3v3Example1Component implements OnInit {
     // this.toggle(this.root.children[0]);
     // this.toggle(this.root.children[1].children[2]);
     // this.toggle(this.root.children[9]);
+
     this.toggle(this.root.children[1].children[0]);
     this.update(this.root);
 
