@@ -12,9 +12,9 @@
 <!--<app-d3v3-collapsible-tree></app-d3v3-collapsible-tree>-->
 
 <!--<hr>-->
-<button (click)="add()">add node</button>
+<button (click)="add()" style="position: absolute;">add node</button>
 
-<app-d3v3-example1 [json_data]="example1json"
+<app-d3v3-example1 [d3_data]="d3_data"
                    (nodeClicked)="nodeClicked($event)"
                    [isChanged]="isChanged"></app-d3v3-example1>
 

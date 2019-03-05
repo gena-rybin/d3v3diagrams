@@ -9,7 +9,7 @@ import {D3HierarchyNodeInterface} from '../models/d3-hierarchy-node.model';
   styleUrls: ['./d3v3-example1.component.css']
 })
 export class D3v3Example1Component implements OnInit {
-  // json_data = {
+  // d3_data = {
   //   'name': 'Campaign1',
   //   'children': [
   //     {
@@ -487,7 +487,7 @@ export class D3v3Example1Component implements OnInit {
   diagonal;
   vis;
 
-  @Input() json_data: any;
+  @Input() d3_data: any;
   @Input() set isChanged(data: boolean) {
     if (data) {
       this.update(this.root);
@@ -514,7 +514,7 @@ export class D3v3Example1Component implements OnInit {
       .append('svg:g')
       .attr('transform', 'translate(' + this.m[3] + ',' + this.m[0] + ')');
 
-    this.root = this.json_data;
+    this.root = this.d3_data;
     this.root.x0 = this.h / 2;
     this.root.y0 = 0;
     this.update(this.root);

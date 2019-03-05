@@ -149,7 +149,7 @@ export class AppComponent {
     ];
   isChanged = false;
 
-    example1json = {
+    d3_data = {
     'name': 'Campaign1',
     'children': [
       {
@@ -647,8 +647,8 @@ export class AppComponent {
   }
 
   add() {
-    this.example1json.children[0].children[0]['_children'] = this.test;
-    console.log(this.example1json.children[0].children[0]);
+    this.d3_data.children[0].children[0]['_children'] = this.test;
+    console.log(this.d3_data.children[0].children[0]);
     this.isChanged = true;
   }
 }
