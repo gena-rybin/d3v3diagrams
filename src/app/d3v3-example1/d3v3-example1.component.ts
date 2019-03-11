@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import * as d3 from 'd3';
+import * as d3hierarchy from 'd3-hierarchy';
 import {D3HierarchyNodeInterface} from '../models/d3-hierarchy-node.model';
 
 
@@ -559,7 +560,32 @@ export class D3v3Example1Component implements OnInit {
     const nodeEnter = node.enter().append('svg:g')
       .attr('class', 'node')
       .attr('transform', d => 'translate(' + source.y0 + ',' + source.x0 + ')')
-      .on('click', d => { this.onClicked(d); this.toggle(d); this.update(d); });
+      .on('click', d => { this.onClicked(d); this.toggle(d); this.update(d);
+        // const hierarchyOtherNode = this.root.descendants().find(ww => ww.data.id === d.id);
+        const tree = d3hierarchy.hierarchy(this.root);
+        console.log('----------');
+        // console.log('descendants', tree.descendants());
+        // console.log('ancestors', tree.ancestors());
+        const leaves = tree.leaves();
+        // console.log('leaves=nodes', leaves);
+        const clickedLeaf = d.name;
+        const nodeLeaf = leaves.filter(leaf => leaf.data.name === clickedLeaf)[0];
+        const pathNodes = tree.path(nodeLeaf);
+        const pathNames = [];
+        const pathIndexes = [];
+        pathNodes.forEach(p => pathNames.push(p.data.name));
+        // pathNames.forEach()
+        console.log('clickedLeaf', clickedLeaf);
+        console.log('pathNames', pathNames);
+        console.log('path from start to clicked node', pathNodes);
+        const links = tree.links();
+        console.log('all links', links);
+
+        // console.log('path', tree.path(tree.leaves()[1]));
+        // console.log('eachBefore', tree.eachBefore(t => console.log(t.data.name)));
+        // console.log('eachAfter', tree.eachAfter(t => console.log(t.data.name)));
+
+      });
 
     nodeEnter.append('svg:circle')
       .attr('r', 1e-6)
